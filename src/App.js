@@ -6,27 +6,55 @@ import ModalAuth from "./Pages/UI Component/ModalAuth";
 
 import "./style/App.scss";
 import ButtonUp from "./Pages/UI Component/ButtonUp";
+import ModalPassword from "./Pages/UI Component/ModalPassword";
+import EditUsersModal from "./Pages/UI Component/EditUsersModal";
 
 function App() {
   
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState("registration");
+  const [isModalOpenAuth , setIsModalOpenAuth] = useState(false);
+  const [modalTypeAuth , setModalTypeAuth] = useState("registration");
 
-  const openModal = (type) => {
-    setIsModalOpen(true);
-    setModalType(type);
+  const openModalAuth  = (type) => {
+    setIsModalOpenAuth(true);
+    setModalTypeAuth(type);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const closeModalAuth = () => {
+    setIsModalOpenAuth(false);
   };
+
+  const [isModalOpenPassword , setIsModalOpenPassword] = useState(false);
+  
+  const openModalPassword  = (type) => {
+    setIsModalOpenPassword(true);
+
+  };
+
+  const closeModalPassword = () => {
+    setIsModalOpenPassword(false);
+  };
+
+
+  const [isModaIOpenUsers , setisModaIOpenUsers] = useState(false);
+  
+  const openModalUsers  = (type) => {
+    setisModaIOpenUsers(true);
+
+  };
+
+  const closeModalUsers = () => {
+    setisModaIOpenUsers(false);
+  };
+
 
   return (
     <div className="App">
       <div className="container">
-        <ModalAuth isOpen={isModalOpen} onClose={closeModal} type={modalType} setModalType={setModalType} />
-        <Header openModal={openModal} />
-        <AppRouter />
+        <ModalAuth isOpen={isModalOpenAuth } onClose={closeModalAuth } type={modalTypeAuth } setModalType={setModalTypeAuth} />
+        <ModalPassword isOpen={isModalOpenPassword} onClose={closeModalPassword } />
+        <EditUsersModal isOpen={isModaIOpenUsers } onClose={closeModalUsers} />
+        <Header openModal={openModalAuth} />
+        <AppRouter openModalPassword={openModalPassword}  openModalUsers={openModalUsers}/>
         <Footer />
         <ButtonUp />
       </div>

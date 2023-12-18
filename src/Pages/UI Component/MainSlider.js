@@ -5,6 +5,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+
+import Slide1 from "../../images/slide1.png"
+import Slide2 from "../../images/slide2.png"
+import Slide3 from "../../images/slide3.png"
+
 const MainSlider = () => {
   return (
     <div className="MainSlider">
@@ -18,19 +23,19 @@ const MainSlider = () => {
       >
         <SwiperSlide  >
             <div className="swiper__slide">
-                <p>Слайд 1</p>
+                <img src={Slide1} />
             </div>
         </SwiperSlide>
 
         <SwiperSlide  >
             <div className="swiper__slide">
-            <p>Слайд 2</p>
+            <img src={Slide2} />
             </div>
         </SwiperSlide>
 
         <SwiperSlide  >
             <div className="swiper__slide">
-            <p>Слайд 3</p>
+            <img src={Slide3} />
             </div>
         </SwiperSlide>
        
